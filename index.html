@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator w/ JS</title>
+    <link rel="stylesheet" href="output.css">
+</head>
+
+<body class="bg-gradient-to-b from-gray-600 to-gray-900 bg-gradient-to-r h-screen flex justify-center items-center font-bold">
+
+    <div class="bg-gradient-to-b from-gray-900 to-gray-600 bg-gradient-to-r rounded-2xl w-96 shadow-2xl shadow-slate-500 border-2 p-10">
+
+        <div class="text-3xl text-white"> Calculator </div>
+
+        <div class="bg-slate-800 rounded-3xl text-3xl mt-8 mb-8 h-16 p-4 pb-3 text-center shadow-inner shadow-black text-white" id="screen"></div>
+
+        <div class="grid grid-cols-4 gap-5">
+
+        <div class="bg-gradient-to-b from-gray-100 to-gray-300 bg-gradient-to-r text-gray-700 w-16 h-16 rounded-full flex justify-center items-center text-3xl shadow-2xl shadow-black cursor-pointer" id="ac">AC</div>
+        <div class="number bg-gradient-to-b from-gray-100 to-gray-300 bg-gradient-to-r text-gray-700 w-16 h-16 rounded-full flex justify-center items-center text-3xl shadow-2xl shadow-black cursor-pointer">00</div>
+        <div class="operator bg-gradient-to-b from-gray-100 to-gray-300 bg-gradient-to-r text-gray-700 w-16 h-16 rounded-full flex justify-center items-center text-3xl shadow-2xl shadow-black cursor-pointer">/</div>
+        <div class="bg-gradient-to-b from-gray-100 to-gray-300 bg-gradient-to-r text-gray-700 w-16 h-16 rounded-full flex justify-center items-center text-3xl shadow-2xl shadow-black cursor-pointer" id="del">
+
+            <svg class="h-12 w-12"
+            fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 9.75L14.25 12m0 0l2.25 2.25M14.25 12l2.25-2.25M14.25 12L12 14.25m-2.58 4.92l-6.375-6.375a1.125 1.125 0 010-1.59L9.42 4.83c.211-.211.498-.33.796-.33H19.5a2.25 2.25 0 012.25 2.25v10.5a2.25 2.25 0 01-2.25 2.25h-9.284c-.298 0-.585-.119-.796-.33z">
+
+            </path>
+            </svg>
+
+        </div>
+
+
+        <div class="number bg-gradient-to-b from-gray-600 to-gray-900 bg-gradient-to-r text-white w-16 h-16 rounded-full flex justify-center items-center text-3xl shadow-2xl shadow-black cursor-pointer">7</div>
+        <div class="number bg-gradient-to-b from-gray-600 to-gray-900 bg-gradient-to-r text-white w-16 h-16 rounded-full flex justify-center items-center text-3xl shadow-2xl shadow-black cursor-pointer">8</div>
+        <div class="number bg-gradient-to-b from-gray-600 to-gray-900 bg-gradient-to-r text-white w-16 h-16 rounded-full flex justify-center items-center text-3xl shadow-2xl shadow-black cursor-pointer">9</div>
+        <div class="operator bg-gradient-to-b from-gray-100 to-gray-300 bg-gradient-to-r text-gray-700 w-16 h-16 rounded-full flex justify-center items-center text-3xl shadow-2xl shadow-black cursor-pointer">*</div>
+
+        <div class="number bg-gradient-to-b from-gray-600 to-gray-900 bg-gradient-to-r text-white w-16 h-16 rounded-full flex justify-center items-center text-3xl shadow-2xl shadow-black cursor-pointer">4</div>
+        <div class="number bg-gradient-to-b from-gray-600 to-gray-900 bg-gradient-to-r text-white w-16 h-16 rounded-full flex justify-center items-center text-3xl shadow-2xl shadow-black cursor-pointer">5</div>
+        <div class="number bg-gradient-to-b from-gray-600 to-gray-900 bg-gradient-to-r text-white w-16 h-16 rounded-full flex justify-center items-center text-3xl shadow-2xl shadow-black cursor-pointer">6</div>
+        <div class="operator bg-gradient-to-b from-gray-100 to-gray-300 bg-gradient-to-r text-gray-700 w-16 h-16 rounded-full flex justify-center items-center text-3xl shadow-2xl shadow-black cursor-pointer">-</div>
+
+        <div class="number bg-gradient-to-b from-gray-600 to-gray-900 bg-gradient-to-r text-white w-16 h-16 rounded-full flex justify-center items-center text-3xl shadow-2xl shadow-black cursor-pointer">1</div>
+        <div class="number bg-gradient-to-b from-gray-600 to-gray-900 bg-gradient-to-r text-white w-16 h-16 rounded-full flex justify-center items-center text-3xl shadow-2xl shadow-black cursor-pointer">2</div>
+        <div class="number bg-gradient-to-b from-gray-600 to-gray-900 bg-gradient-to-r text-white w-16 h-16 rounded-full flex justify-center items-center text-3xl shadow-2xl shadow-black cursor-pointer">3</div>
+        <div class="operator bg-gradient-to-b from-gray-100 to-gray-300 bg-gradient-to-r text-gray-700 w-16 h-16 rounded-full flex justify-center items-center text-3xl shadow-2xl shadow-black cursor-pointer">+</div>
+
+        <div class="number bg-gradient-to-b from-gray-600 to-gray-900 bg-gradient-to-r text-white w-16 h-16 rounded-full flex justify-center items-center text-3xl shadow-2xl shadow-black cursor-pointer">.</div>
+        <div class="number bg-gradient-to-b from-gray-600 to-gray-900 bg-gradient-to-r text-white w-16 h-16 rounded-full flex justify-center items-center text-3xl shadow-2xl shadow-slate-600 cursor-pointer">0</div>
+        <div class="bg-gradient-to-b from-gray-100 to-gray-300 bg-gradient-to-r text-gray-700 h-14 rounded-3xl flex justify-center items-center text-3xl shadow-2xl shadow-slate-600 cursor-pointer col-span-2" id="equals">=</div>
+
+        </div>
+
+
+    </div>
+
+    <script>
+        const acButton = document.getElementById('ac');
+        const equalButton = document.getElementById('equals');
+        const delButton = document.getElementById('del');
+        const screen = document.getElementById('screen');
+        const numberButton = document.querySelectorAll('.number');
+        const operationButton = document.querySelectorAll('.operator');
+
+        // Default object
+        var variables = ['', ''];
+        var operator = '';
+        var id = 0;
+
+        function reset() {
+
+                variables = ['', ''];
+                operator = '';
+                id = 0;
+                updateScreen();
+        }
+
+        acButton.addEventListener('click', reset);
+
+        function updateScreen() {
+            if(variables[id] == ''){
+                screen.innerText = '0';
+            }else {
+                screen.innerText = variables[id];
+            }
+        }
+
+        function deleter(){
+            if(variables[id].length > 0)
+            variables[id] = variables[id].substr(0, variables[id].length-1);
+            updateScreen();
+        }
+
+        delButton.addEventListener('click', deleter);
+
+        function calculate() {
+            var res = eval(variables[0] + operator + variables[1]);
+            operator = '';
+            variables[1] = '';
+            variables[0] = res;
+            id = 0;
+            updateScreen();
+            variables[0] = '';            
+        }
+
+        
+
+        numberButton.forEach(button => {
+            button.addEventListener('click', () => {
+
+                const reg = /^[+-]?([0-9]+([.][0-9]*)?|[.][0-9]+)$/;
+
+                if(reg.test(variables[id]+button.innerText)){
+                    variables[id] += button.innerText;
+                    updateScreen();
+                }
+
+            });
+        });
+
+        operationButton.forEach(button => {
+
+            button.addEventListener('click', () => {
+
+                if(variables[0] === '' && screen.innerText !== '0'){
+                    variables[0] = screen.innerText;
+                }
+
+                id++;
+                switch(button.innerText){
+                    
+                    case '+':
+                    case '-':
+                    case '*':
+                    case '/':
+                        operator = button.innerText;
+                        break;
+                }
+
+            })
+        })
+
+        equalButton.addEventListener('click', calculate);
+
+    </script>
+</html>
